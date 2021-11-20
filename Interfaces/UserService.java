@@ -26,8 +26,4 @@ public interface UserService {
 	// Metodo para eliminar un usuario
 	public void eliminarUsuario(String Usuario_ID);
 	
-	// Notificacion a los usuarios de que la membresia esta por vencer via email 
-	public void notificarVencimiento(String Usuario_ID);
-	
-}
 }
