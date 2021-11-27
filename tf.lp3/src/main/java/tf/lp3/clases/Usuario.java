@@ -55,11 +55,13 @@ public class Usuario extends Verificaciones{
 	}
 	
 	public static void main(String[] args) {
-		Usuario user= new Usuario("Amandam", "123", "", "amandamaduro@gmail.com", "administrador");
+		Usuario user= new Usuario("Amandam", "123", "", "amanda@gmail.com", "administrador");
 		
-		System.out.println("Usuario: " + user.getUsuario_ID());
-		System.out.println("Nombre: " + user.getNombre());
+		//System.out.println("Usuario: " + user.getUsuario_ID());
+		//System.out.println("Nombre: " + user.getNombre());
 		verificarUsuario(user);
+		validarCorreo(user);
+ 
 	}
 	
 }
