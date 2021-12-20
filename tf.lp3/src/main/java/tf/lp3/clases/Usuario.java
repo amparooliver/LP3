@@ -1,5 +1,7 @@
 package tf.lp3.clases;
 
+import tf.lp3.excepciones.CorreoException;
+import tf.lp3.excepciones.LoginException;
 import tf.lp3.utilidades.Verificaciones;
 
 public class Usuario extends Verificaciones{
@@ -55,12 +57,19 @@ public class Usuario extends Verificaciones{
 	}
 	
 	public static void main(String[] args) {
-		Usuario user= new Usuario("Amandam", "123", "", "amanda@gmail.com", "administrador");
+		Usuario user= new Usuario("Amandam", "123", "Amanda", "amandagmail.com", "administrador");
 		
 		//System.out.println("Usuario: " + user.getUsuario_ID());
 		//System.out.println("Nombre: " + user.getNombre());
-		verificarUsuario(user);
-		validarCorreo(user);
+		try {
+			verificarUsuario(user);
+			validarCorreo(user);
+		} catch (LoginException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CorreoException e) {
+			e.printStackTrace();
+		}
  
 	}
 	
