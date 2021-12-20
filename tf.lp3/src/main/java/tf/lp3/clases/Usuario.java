@@ -1,28 +1,32 @@
 package tf.lp3.clases;
-
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import tf.lp3.excepciones.CorreoException;
 import tf.lp3.excepciones.LoginException;
 import tf.lp3.utilidades.Verificaciones;
 
-public class Usuario extends Verificaciones{
-	String Usuario_ID;
-	String Usuario_contra;
-	String Nombre;
-	String Email;
-	String Rol;
+@Entity
+public class Usuario extends Verificaciones implements Serializable{
 	
-	//Constructor para clase usuario
-	public Usuario(String usuario_ID, String usuario_contra, String nombre, String email, String rol) {
-		super();
-		Usuario_ID = usuario_ID;
-		Usuario_contra = usuario_contra;
-		Nombre = nombre;
-		Email = email;
-		Rol = rol;
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private String Usuario_ID;
+	
+	private String Usuario_contra;
+	private String Nombre;
+	private String Email;
+	private String Rol; // se va a modificar
 	
 	public Usuario() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public String getUsuario_ID() {
@@ -54,6 +58,16 @@ public class Usuario extends Verificaciones{
 	}
 	public void setRol(String rol) {
 		Rol = rol;
+	}
+	
+	//Constructor para clase usuario
+	public Usuario(String usuario_ID, String usuario_contra, String nombre, String email, String rol) {
+		super();
+		Usuario_ID = usuario_ID;
+		Usuario_contra = usuario_contra;
+		Nombre = nombre;
+		Email = email;
+		Rol = rol; // se va a modificar
 	}
 	
 	public static void main(String[] args) {

@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Administrador extends Usuario {
+public class AngelInvestor extends Usuario{
 
 	/**
 	 * 
@@ -24,12 +24,4 @@ public class Administrador extends Usuario {
 	public void setUsuario_ID(String usuario_ID) {
 		Usuario_ID = usuario_ID;
 	}
-
-	public Administrador(String usuario_ID) {
-		super();
-		Usuario_ID = usuario_ID;
-	}
-	
-	
-
 }

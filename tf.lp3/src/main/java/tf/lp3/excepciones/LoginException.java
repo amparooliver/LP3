@@ -2,6 +2,11 @@ package tf.lp3.excepciones;
 
 public class LoginException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5882544074863494856L;
+
 	public LoginException() {
 		// TODO Auto-generated constructor stub
 	}
