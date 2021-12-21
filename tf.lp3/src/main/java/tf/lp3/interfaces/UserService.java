@@ -1,6 +1,6 @@
 package tf.lp3.interfaces;
 
-import tf.lp3.clases.Administrador;
+import tpf.lp3.domain.Administrador;
 
 public interface UserService {
 	    // Validar Acceso

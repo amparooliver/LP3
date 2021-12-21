@@ -1,15 +1,24 @@
-package tf.lp3.clases;
+package tpf.lp3.domain;
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import tf.lp3.excepciones.CorreoException;
-import tf.lp3.excepciones.LoginException;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 import tf.lp3.utilidades.Verificaciones;
 
+
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario extends Verificaciones implements Serializable{
+	
+	public enum RolEnum {
+		ADMINISTRADOR,SPONSOR,ANGEL_INVESTOR,IMPLEMENTADOR,BRAINSTORMER,ORGANIZACION
+	}
 	
 	/**
 	 * 
@@ -18,28 +27,28 @@ public class Usuario extends Verificaciones implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String Usuario_ID;
-	
-	private String Usuario_contra;
-	private String Nombre;
-	private String Email;
-	private String Rol; // se va a modificar
+	protected Long Usuario_ID;
+	protected String Contrasehna;
+	protected String Nombre;
+	protected String Email;
+	@Enumerated(EnumType.STRING)
+	protected RolEnum Rol;
 	
 	public Usuario() {
 		super();
 	}
 
-	public String getUsuario_ID() {
+	public Long getUsuario_ID() {
 		return Usuario_ID;
 	}
-	public void setUsuario_ID(String usuario_ID) {
+	public void setUsuario_ID(Long usuario_ID) {
 		Usuario_ID = usuario_ID;
 	}
-	public String getUsuario_contra() {
-		return Usuario_contra;
+	public String getContrasehna() {
+		return Contrasehna;
 	}
-	public void setUsuario_contra(String usuario_contra) {
-		Usuario_contra = usuario_contra;
+	public void setContrasehna(String contrasehna) {
+		Contrasehna = contrasehna;
 	}
 	public String getNombre() {
 		return Nombre;
@@ -53,24 +62,15 @@ public class Usuario extends Verificaciones implements Serializable{
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public String getRol() {
+	public RolEnum getRolEnum() {
 		return Rol;
 	}
-	public void setRol(String rol) {
-		Rol = rol;
+	public void setRol(RolEnum Rol) {
+		this.Rol = Rol;
 	}
+
 	
-	//Constructor para clase usuario
-	public Usuario(String usuario_ID, String usuario_contra, String nombre, String email, String rol) {
-		super();
-		Usuario_ID = usuario_ID;
-		Usuario_contra = usuario_contra;
-		Nombre = nombre;
-		Email = email;
-		Rol = rol; // se va a modificar
-	}
-	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Usuario user= new Usuario("Amandam", "123", "Amanda", "amandagmail.com", "administrador");
 		
 		//System.out.println("Usuario: " + user.getUsuario_ID());
@@ -85,6 +85,6 @@ public class Usuario extends Verificaciones implements Serializable{
 			e.printStackTrace();
 		}
  
-	}
+	}*/
 	
 }

@@ -1,4 +1,4 @@
-package tf.lp3.clases;
+package tpf.lp3.domain;
 
 public class Pago {
 	// Se especifica el tipo de pago ( dinero , creditos , etc )

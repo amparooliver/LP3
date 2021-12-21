@@ -1,4 +1,4 @@
-package tf.lp3.clases;
+package tpf.lp3.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Brainstormer extends Usuario{
+public class Sponsor extends Usuario{
 
 	/**
 	 * 
@@ -24,4 +24,5 @@ public class Brainstormer extends Usuario{
 	public void setUsuario_ID(String usuario_ID) {
 		Usuario_ID = usuario_ID;
 	}
+	
 }

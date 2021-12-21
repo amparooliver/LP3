@@ -1,13 +1,13 @@
 package tf.lp3.utilidades;
 
-import tf.lp3.clases.Usuario;
-import tf.lp3.excepciones.CorreoException;
-import tf.lp3.excepciones.LoginException;
-
 import java.util.regex.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import tpf.lp3.domain.Usuario;
+import tpf.lp3.exceptions.CorreoException;
+import tpf.lp3.exceptions.LoginException;
 
 public class Verificaciones {
 	//Utilidad para la verificacion de crear usuario 

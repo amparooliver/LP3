@@ -1,4 +1,4 @@
-package tf.lp3.clases;
+package tpf.lp3.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

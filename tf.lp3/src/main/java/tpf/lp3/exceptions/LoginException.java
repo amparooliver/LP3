@@ -1,4 +1,4 @@
-package tf.lp3.excepciones;
+package tpf.lp3.exceptions;
 
 public class LoginException extends Exception {
 
