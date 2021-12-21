@@ -6,14 +6,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
 import tf.lp3.utilidades.Verificaciones;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario extends Verificaciones implements Serializable{
 	
 	public enum RolEnum {
@@ -26,7 +23,11 @@ public class Usuario extends Verificaciones implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+<<<<<<< HEAD
 	protected Long Usuario_ID;
+=======
+	protected Long Usuario_ID;  
+>>>>>>> de3fe49d4a1391e17f28fb51d7ea1b7700d21f91
 	
 	protected String Contrasehna;
 	protected String Nombre;
