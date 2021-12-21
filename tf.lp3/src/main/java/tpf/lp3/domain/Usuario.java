@@ -23,11 +23,7 @@ public class Usuario extends Verificaciones implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-<<<<<<< HEAD
 	protected Long Usuario_ID;
-=======
-	protected Long Usuario_ID;  
->>>>>>> de3fe49d4a1391e17f28fb51d7ea1b7700d21f91
 	
 	protected String Contrasehna;
 	protected String Nombre;
