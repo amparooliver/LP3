@@ -24,10 +24,10 @@ public class Usuario extends Verificaciones implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long Usuario_ID;
+	
 	protected String Contrasehna;
 	protected String Nombre;
 	protected String Email;
@@ -42,25 +42,25 @@ public class Usuario extends Verificaciones implements Serializable{
 		return Usuario_ID;
 	}
 	public void setUsuario_ID(Long usuario_ID) {
-		Usuario_ID = usuario_ID;
+		this.Usuario_ID = usuario_ID;
 	}
 	public String getContrasehna() {
 		return Contrasehna;
 	}
 	public void setContrasehna(String contrasehna) {
-		Contrasehna = contrasehna;
+		this.Contrasehna = contrasehna;
 	}
 	public String getNombre() {
 		return Nombre;
 	}
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.Nombre = nombre;
 	}
 	public String getEmail() {
 		return Email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.Email = email;
 	}
 	public RolEnum getRolEnum() {
 		return Rol;
