@@ -18,13 +18,9 @@ public class Verificaciones {
 			System.out.println("No se ingreso nombre");
 			throw new LoginException("Para ingresar se debe ingresar un nombre");
 		}
-		if(isEmptyString(user.getUsuario_contra())) {
+		if(isEmptyString(user.getContrasehna())) {
 			System.out.println("No se ingreso contrasenha");
 			throw new LoginException("Para ingresar se debe ingresar una contrasehna");
-		}
-		if(isEmptyString(user.getUsuario_ID())) {
-			System.out.println("No se ingreso usuario");
-			throw new LoginException("Para ingresar se debe ingresar el ID del usuario");
 		}
 		if(isEmptyString(user.getEmail())) {
 			System.out.println("No se ingreso ningun correo");

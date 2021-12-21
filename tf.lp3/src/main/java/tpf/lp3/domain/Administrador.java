@@ -15,17 +15,17 @@ public class Administrador extends Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String Usuario_ID;
+	private Long Usuario_ID;
 
-	public String getUsuario_ID() {
+	public Long getUsuario_ID() {
 		return Usuario_ID;
 	}
 
-	public void setUsuario_ID(String usuario_ID) {
+	public void setUsuario_ID(Long usuario_ID) {
 		Usuario_ID = usuario_ID;
 	}
 
-	public Administrador(String usuario_ID) {
+	public Administrador(Long usuario_ID) {
 		super();
 		Usuario_ID = usuario_ID;
 	}
