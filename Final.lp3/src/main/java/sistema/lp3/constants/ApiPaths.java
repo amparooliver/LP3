@@ -5,5 +5,5 @@ public class ApiPaths {
 	
 	public static final String USUARIO = BASE_API + "/usuario";
 	public static final String ORGANIZACION = BASE_API + "/organizacion";
-	public static final String PROYECTO = BASE_API + "/proyecto";
+
 }
