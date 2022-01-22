@@ -18,6 +18,6 @@ import sistema.lp3.domain.Organizacion;
 @Repository
 public interface Organizacion_repository  extends PagingAndSortingRepository<Organizacion, Long>{
 
-	List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion);
+	//List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion);
 
 }

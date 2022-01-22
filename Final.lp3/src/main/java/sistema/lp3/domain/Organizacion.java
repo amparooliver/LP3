@@ -1,6 +1,5 @@
 package sistema.lp3.domain;
 
-import java.io.Serializable;
 /*
 import java.util.ArrayList;
 import java.util.List;
@@ -12,19 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Organizacion implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3372921319229786779L;
+public class Organizacion{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	protected Long Organizacion_ID;
 	
-	protected String nombreOrganizacion;
-	protected String tipoDeOrganizacion;
+	String nombreOrganizacion;
+	String tipoDeOrganizacion;
 	
 	/*@ElementCollection
 	private List<Usuario> listaMiembros = new ArrayList<Usuario>();
@@ -37,7 +31,7 @@ public class Organizacion implements Serializable{
 	}
 
 	public void setOrganizacion_ID(Long organizacion_ID) {
-		Organizacion_ID = organizacion_ID;
+		this.Organizacion_ID = organizacion_ID;
 	}
 
 	public String getNombreOrganizacion() {
@@ -72,11 +66,9 @@ public class Organizacion implements Serializable{
 		this.listaProyectos = listaProyectos;
 	}*/
 
-	public Organizacion(Long organizacion_ID, String nombreOrganizacion, String tipoDeOrganizacion) {
+	public Organizacion() {
 		super();
-		Organizacion_ID = organizacion_ID;
-		this.nombreOrganizacion = nombreOrganizacion;
-		this.tipoDeOrganizacion = tipoDeOrganizacion;
+		
 	}
 
 

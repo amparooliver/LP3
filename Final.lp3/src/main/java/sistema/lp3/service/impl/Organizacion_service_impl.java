@@ -32,7 +32,7 @@ public class Organizacion_service_impl implements Organizacion_service{
 		
 	}
 
-	@Override
+	/*@Override
 	public List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion) {
 		List<Organizacion> organizaciones = new ArrayList<>();
 		Iterator<Organizacion> iteratorOrganizaciones = organizacion_repository.findByTipoDeOrganizacion(tipoDeOrganizacion).iterator();
@@ -40,5 +40,5 @@ public class Organizacion_service_impl implements Organizacion_service{
 			organizaciones.add(iteratorOrganizaciones.next());
 		}
 		return organizaciones;
-	}
+	}*/
 }
