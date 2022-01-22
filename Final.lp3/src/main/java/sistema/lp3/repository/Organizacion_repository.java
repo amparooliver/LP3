@@ -1,5 +1,8 @@
 package sistema.lp3.repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*import java.util.List;*/
 
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -14,5 +17,7 @@ import sistema.lp3.domain.Organizacion;
 
 @Repository
 public interface Organizacion_repository  extends PagingAndSortingRepository<Organizacion, Long>{
-	/*List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion);*/
+
+	List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion);
+
 }

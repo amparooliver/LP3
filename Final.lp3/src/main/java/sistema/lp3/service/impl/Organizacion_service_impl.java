@@ -32,7 +32,6 @@ public class Organizacion_service_impl implements Organizacion_service{
 		
 	}
 
-	/*
 	@Override
 	public List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion) {
 		List<Organizacion> organizaciones = new ArrayList<>();
@@ -42,5 +41,4 @@ public class Organizacion_service_impl implements Organizacion_service{
 		}
 		return organizaciones;
 	}
-	*/
 }

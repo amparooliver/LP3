@@ -19,18 +19,22 @@ import sistema.lp3.constants.ApiPaths;
 public class Organizacion_controller {
 	
 	@Autowired
-	private Organizacion_service_impl Organizacion_service;
+	private Organizacion_service_impl organizacion_service_impl;
 	
-	//Request para listar todos las organzaciones 
+	/*
+	 * Metodo mostrar() Retorna una lista de todos las organizaciones existentes en el
+	 * repositorio
+	 */
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Organizacion> list(){
-			return Organizacion_service.findAll();
+	public List<Organizacion> mostrar(){
+			return organizacion_service_impl.findAll();
 	}
-			
+
 	//Post para guardar organizaciones
 	@PostMapping
 	public void add(@RequestBody Organizacion organizacion) {
-		Organizacion_service.save(organizacion);
+		organizacion_service_impl.save(organizacion);
 	}
 
 }

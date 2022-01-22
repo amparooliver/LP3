@@ -1,5 +1,6 @@
 package sistema.lp3.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,9 +16,13 @@ import org.hibernate.annotations.CreationTimestamp;
 
 @Table(name="sis_usuarios")
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario {
+public class Usuario implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long Usuario_ID;
