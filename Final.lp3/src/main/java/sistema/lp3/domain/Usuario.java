@@ -12,6 +12,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Table(name="sis_usuarios")
 @Entity
@@ -19,63 +20,63 @@ public class Usuario{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected Long Usuario_ID;
+	protected Long usuario_ID;
 	
-	protected String Contra;
-	protected String Nombre;
-	protected String Email;
-	protected String Rol;
+	protected String contra;
+	protected String nombre;
+	protected String email;
+	protected String rol;
 	
 	@CreationTimestamp
-	@Column(name="Fecha_Invitacion")
-	protected Date Invitacion;
+	@Column(name="Fecha_invitacion")
+	protected Date invitacion;
 
-	public Long getUsuario_ID() {
-		return Usuario_ID;
+	public Long getusuario_ID() {
+		return usuario_ID;
 	}
 
-	public void setUsuario_ID(Long usuario_ID) {
-		this.Usuario_ID = usuario_ID;
+	public void setusuario_ID(Long usuario_ID) {
+		this.usuario_ID = usuario_ID;
 	}
 
-	public String getContra() {
-		return Contra;
+	public String getcontra() {
+		return contra;
 	}
 
-	public void setContra(String contra) {
-		this.Contra = contra;
+	public void setcontra(String contra) {
+		this.contra = contra;
 	}
 
-	public String getNombre() {
-		return Nombre;
+	public String getnombre() {
+		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.Nombre = nombre;
+	public void setnombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public String getEmail() {
-		return Email;
+	public String getemail() {
+		return email;
 	}
 
-	public void setEmail(String email) {
-		this.Email = email;
+	public void setemail(String email) {
+		this.email = email;
 	}
 
-	public String getRol() {
-		return Rol;
+	public String getrol() {
+		return rol;
 	}
 
-	public void setRol(String rol) {
-		this.Rol = rol;
+	public void setrol(String rol) {
+		this.rol = rol;
 	}
 
-	public Date getInvitacion() {
-		return Invitacion;
+	public Date getinvitacion() {
+		return invitacion;
 	}
 
-	public void setInvitacion(Date invitacion) {
-		this.Invitacion = invitacion;
+	public void setinvitacion(Date invitacion) {
+		this.invitacion = invitacion;
 	}
 
 	public Usuario() {

@@ -40,34 +40,34 @@ public class Usuario_service_impl implements Usuario_service {
 	public Usuario update_user(Usuario user, long usuario_ID) {
 		Usuario usuario= usuarioRepository.findById(usuario_ID).get();
 		
-		if(Objects.nonNull(user.getNombre()) && !"".equalsIgnoreCase(user.getNombre())) {
-			usuario.setNombre(user.getNombre());
+		if(Objects.nonNull(user.getnombre()) && !"".equalsIgnoreCase(user.getnombre())) {
+			usuario.setnombre(user.getnombre());
 		}
 		
-		if(Objects.nonNull(user.getContra()) && !"".equalsIgnoreCase(user.getContra())) {
-			usuario.setContra(user.getContra());
+		if(Objects.nonNull(user.getcontra()) && !"".equalsIgnoreCase(user.getcontra())) {
+			usuario.setcontra(user.getcontra());
 		}
 		
-		if(Objects.nonNull(user.getEmail()) && !"".equalsIgnoreCase(user.getEmail())) {
-			usuario.setEmail(user.getEmail());
+		if(Objects.nonNull(user.getemail()) && !"".equalsIgnoreCase(user.getemail())) {
+			usuario.setemail(user.getemail());
 		}
 		
-		if(Objects.nonNull(user.getRol()) && !"".equalsIgnoreCase(user.getRol())) {
-			usuario.setRol(user.getRol());
+		if(Objects.nonNull(user.getrol()) && !"".equalsIgnoreCase(user.getrol())) {
+			usuario.setrol(user.getrol());
 		}
 		
 		return usuarioRepository.save(usuario);
 		
 	}
 	
-	/*@Override
-	public List<Usuario> findbyRol(String Rol) {
+	@Override
+	public List<Usuario> findByRol(String rol){
 		List<Usuario> users = new ArrayList<>();
-		Iterator<Usuario> iteratorUsuarios = usuarioRepository.findbyRol(Rol).iterator();
+		Iterator<Usuario> iteratorUsuarios = usuarioRepository.findByRol(rol).iterator();
 		while (iteratorUsuarios.hasNext()) {
 			users.add(iteratorUsuarios.next());
 		}
-		return users;
-	}*/
+		return users;	
+	}
 	
 }
