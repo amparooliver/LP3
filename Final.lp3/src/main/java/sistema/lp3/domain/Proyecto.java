@@ -42,7 +42,11 @@ public class Proyecto implements Serializable{
 	public void setDescripcionProyecto(String descripcionProyecto) {
 		this.descripcionProyecto = descripcionProyecto;
 	}
+	@Override
+	public String toString() {
+		return "Proyecto [Proyecto_ID=" + Proyecto_ID + ", nombreProyecto=" + nombreProyecto + ", descripcionProyecto="
+				+ descripcionProyecto + "]";
+	}
 
-	
 }
  
