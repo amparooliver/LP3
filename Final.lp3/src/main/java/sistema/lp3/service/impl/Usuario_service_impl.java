@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sistema.lp3.domain.Administrador;
+import sistema.lp3.domain.Sponsor;
 import sistema.lp3.domain.Usuario;
 import sistema.lp3.repository.Usuario_repository;
 import sistema.lp3.service.Usuario_service;
@@ -91,6 +92,36 @@ public class Usuario_service_impl implements Usuario_service {
 		}
 		
 		return usuarioRepository.save(admin);
+	}
+
+	public Sponsor update_sponsor(Sponsor user, long usuario_ID) {
+		Sponsor sponsor= (Sponsor) usuarioRepository.findById(usuario_ID).get();
+		
+		if(Objects.nonNull(user.getnombre()) && !"".equalsIgnoreCase(user.getnombre())) {
+			sponsor.setnombre(user.getnombre());
+		}
+		
+		if(Objects.nonNull(user.getcontra()) && !"".equalsIgnoreCase(user.getcontra())) {
+			sponsor.setcontra(user.getcontra());
+		}
+		
+		if(Objects.nonNull(user.getemail()) && !"".equalsIgnoreCase(user.getemail())) {
+			sponsor.setemail(user.getemail());
+		}
+		
+		if(Objects.nonNull(user.getBienes()) && !"".equalsIgnoreCase(user.getBienes())) {
+			sponsor.setBienes(user.getBienes());
+		}
+		
+		if(Objects.nonNull(user.getCategoria()) && !"".equalsIgnoreCase(user.getCategoria())) {
+			sponsor.setCategoria(user.getCategoria());
+		}
+		return usuarioRepository.save(sponsor);
+	}
+	
+	public void financiamiento(long usuario_ID, float monto) {
+		//Realizar la transferencia de acuerdo al monto al usuario asignado
+		//Retorna nulo 
 	}
 	
 }

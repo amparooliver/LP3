@@ -27,11 +27,5 @@ public class Administrador extends Usuario implements Serializable{
 	public Administrador() {
 		this.rol = "Administrador";
 	}
-
-	@Override
-	public String toString() {
-		return "Administrador [usuario_ID=" + usuario_ID + ", contra=" + contra + ", nombre=" + nombre + ", email="
-				+ email + ", rol=" + rol + ", invitacion=" + invitacion + "]";
-	}
 	
 }

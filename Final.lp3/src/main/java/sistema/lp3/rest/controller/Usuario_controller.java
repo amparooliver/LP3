@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import sistema.lp3.constants.ApiPaths;
 import sistema.lp3.domain.Administrador;
+import sistema.lp3.domain.Angel_Investor;
+import sistema.lp3.domain.Sponsor;
 import sistema.lp3.domain.Usuario;
 import sistema.lp3.repository.Usuario_repository;
 import sistema.lp3.service.impl.Usuario_service_impl;
@@ -76,6 +78,21 @@ public class Usuario_controller {
 		return Usuario_service.update_admin(user, usuario_ID);
 	}
 	
+	//Post para crar sponsor 
+	@RequestMapping(value="/Sponsor", method= RequestMethod.POST)
+	public void add_sponsor(@RequestBody Sponsor user) {
+		Usuario_service.save(user);
+	}
 	
+	//Put para actualizar administrador 
+	@PutMapping("/Sponsor/{usuario_ID}")
+	public Usuario update_sponsor(@RequestBody Sponsor user, @PathVariable("usuario_ID") long usuario_ID) {
+		return Usuario_service.update_sponsor(user, usuario_ID);
+	}
 	
+	//Post para crear Angel Inversor 
+	@RequestMapping(value="/Angel", method= RequestMethod.POST)
+	public void add_angel(@RequestBody Angel_Investor user) {
+		Usuario_service.save(user);
+	}
 }

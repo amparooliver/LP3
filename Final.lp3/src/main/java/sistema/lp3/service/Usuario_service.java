@@ -3,6 +3,7 @@ package sistema.lp3.service;
 import java.util.List;
 
 import sistema.lp3.domain.Administrador;
+import sistema.lp3.domain.Sponsor;
 import sistema.lp3.domain.Usuario;
 
 public interface Usuario_service {
@@ -21,6 +22,12 @@ public interface Usuario_service {
 	
 	//Metodo para actualizar administrador (los bienes)
 	Administrador update_admin(Administrador user, long usuario_ID);
+	
+	//Metodo para actualizar sponsor 
+	Sponsor update_sponsor(Sponsor user, long usuario_ID);
+	
+	//Metodo para que el sponsor pueda financiar a usuarios
+	void financiamiento(long usuario_ID, float monto);
 	
 }
 
