@@ -26,7 +26,7 @@ public class Organizacion_service_impl implements Organizacion_service{
 		}
 		return organizaciones;
 	}
-	
+
 	public void save(Organizacion organizaciones) {
 		organizacion_repository.save(organizaciones);
 		
