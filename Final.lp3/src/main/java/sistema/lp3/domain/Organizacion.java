@@ -1,16 +1,10 @@
 package sistema.lp3.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
-/*
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.ElementCollection;*/
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,10 +27,10 @@ public class Organizacion implements Serializable{
 	String tipoDeOrganizacion;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Usuario> listaMiembros = new ArrayList<Usuario>();
+	private List<Usuario> listaMiembros;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	protected List<Proyecto> listaProyectos;
+	private List<Proyecto> listaProyectos;
 
 	public Long getOrganizacion_ID() {
 		return Organizacion_ID;
