@@ -11,5 +11,5 @@ public interface Organizacion_service {
 	
 	List<Organizacion> findAll();
 
-	//List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion);
+	List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion);
 }
