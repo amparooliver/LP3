@@ -42,13 +42,6 @@ public class Proyecto implements Serializable{
 	public void setDescripcionProyecto(String descripcionProyecto) {
 		this.descripcionProyecto = descripcionProyecto;
 	}
-	public Proyecto(Long proyecto_ID, String nombreProyecto, String descripcionProyecto) {
-		super();
-		Proyecto_ID = proyecto_ID;
-		this.nombreProyecto = nombreProyecto;
-		this.descripcionProyecto = descripcionProyecto;
-	}
-
 
 	
 }
