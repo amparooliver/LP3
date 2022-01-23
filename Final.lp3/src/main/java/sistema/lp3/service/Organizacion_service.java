@@ -12,4 +12,6 @@ public interface Organizacion_service {
 	List<Organizacion> findAll();
 
 	List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion);
+	
+	void delete_org(long organizacion_ID);
 }

@@ -38,11 +38,10 @@ public class Transferencia_controller {
 	@DeleteMapping("/{transferencia_ID}")
 	public String delete_transfer(@PathVariable("transferencia_ID") long transferencia_ID) {
 		transferencia_service_impl.delete_transfer(transferencia_ID);
-		
 		return "transferencia exitosamente eliminada";
 	}
 	
-	//Put para actualizar usuarios por su id 
+	//Put para actualizar transferencias por su id 
 	@PutMapping("/{transferencia_ID}")
 	public Transferencia update_transfer(@RequestBody Transferencia transfer, @PathVariable("transferencia_ID") long transferencia_ID) {
 		return transferencia_service_impl.update_transfer(transfer, transferencia_ID);

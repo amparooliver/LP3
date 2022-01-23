@@ -3,6 +3,7 @@ package sistema.lp3.rest.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +39,13 @@ public class Organizacion_controller {
 	@PostMapping
 	public void add(@RequestBody Organizacion organizacion) {
 		organizacion_service_impl.save(organizacion);
+	}
+	
+	//Delete para eliminar transferencias por su id 
+	@DeleteMapping("/{organizacion_ID}")
+	public String delete_org(@PathVariable("organizacion_ID") long organizacion_ID) {
+		organizacion_service_impl.delete_org(organizacion_ID);
+		return "organizacion exitosamente eliminada";
 	}
 	
 	@GetMapping("/{tipoDeOrganizacion}")

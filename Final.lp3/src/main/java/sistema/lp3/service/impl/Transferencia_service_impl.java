@@ -3,13 +3,11 @@ package sistema.lp3.service.impl;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sistema.lp3.domain.Transferencia;
-import sistema.lp3.domain.Usuario;
 import sistema.lp3.repository.Transferencia_repository;
 import sistema.lp3.service.Transferencia_service;
 

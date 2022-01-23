@@ -31,6 +31,11 @@ public class Organizacion_service_impl implements Organizacion_service{
 		organizacion_repository.save(organizaciones);
 		
 	}
+	
+	@Override
+	public void delete_org(long organizacion_ID) {
+		organizacion_repository.deleteById(organizacion_ID);
+	}
 
 	@Override
 	public List<Organizacion> findByTipoDeOrganizacion(String tipoDeOrganizacion) {
@@ -41,4 +46,5 @@ public class Organizacion_service_impl implements Organizacion_service{
 		}
 		return organizaciones;
 	}
+	
 }
