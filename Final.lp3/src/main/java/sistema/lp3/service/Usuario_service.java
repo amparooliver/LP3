@@ -3,6 +3,8 @@ package sistema.lp3.service;
 import java.util.List;
 
 import sistema.lp3.domain.Administrador;
+import sistema.lp3.domain.Brainstormer;
+import sistema.lp3.domain.Implementador;
 import sistema.lp3.domain.Sponsor;
 import sistema.lp3.domain.Usuario;
 
@@ -28,6 +30,13 @@ public interface Usuario_service {
 	
 	//Metodo para que el sponsor pueda financiar a usuarios
 	void financiamiento(long usuario_ID, float monto);
+	
+	//Metodo para actualizar implementador
+	Implementador update_implementador(Implementador user, long usuario_ID);
+	
+	//Metodo para actualizar brainstormer
+	Brainstormer update_brainstormer(Brainstormer user, long usuario_ID);
+	
 	
 }
 

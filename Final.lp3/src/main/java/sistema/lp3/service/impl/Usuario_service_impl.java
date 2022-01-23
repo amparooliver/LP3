@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sistema.lp3.domain.Administrador;
+import sistema.lp3.domain.Brainstormer;
+import sistema.lp3.domain.Implementador;
 import sistema.lp3.domain.Sponsor;
 import sistema.lp3.domain.Usuario;
 import sistema.lp3.repository.Usuario_repository;
@@ -117,6 +119,53 @@ public class Usuario_service_impl implements Usuario_service {
 			sponsor.setCategoria(user.getCategoria());
 		}
 		return usuarioRepository.save(sponsor);
+	}
+	
+	public Implementador update_implementador(Implementador user, long usuario_ID) {
+		Implementador implementador= (Implementador) usuarioRepository.findById(usuario_ID).get();
+		
+		if(Objects.nonNull(user.getnombre()) && !"".equalsIgnoreCase(user.getnombre())) {
+			implementador.setnombre(user.getnombre());
+		}
+		
+		if(Objects.nonNull(user.getcontra()) && !"".equalsIgnoreCase(user.getcontra())) {
+			implementador.setcontra(user.getcontra());
+		}
+		
+		if(Objects.nonNull(user.getemail()) && !"".equalsIgnoreCase(user.getemail())) {
+			implementador.setemail(user.getemail());
+		}
+		
+		if(Objects.nonNull(user.getAsignacion()) && !"".equalsIgnoreCase(user.getAsignacion())) {
+			implementador.setAsignacion(user.getAsignacion());
+		}
+	
+		return usuarioRepository.save(implementador);
+	}
+	
+	public Brainstormer update_brainstormer(Brainstormer user, long usuario_ID) {
+		Brainstormer brainstormer= (Brainstormer) usuarioRepository.findById(usuario_ID).get();
+		
+		if(Objects.nonNull(user.getnombre()) && !"".equalsIgnoreCase(user.getnombre())) {
+			brainstormer.setnombre(user.getnombre());
+		}
+		
+		if(Objects.nonNull(user.getcontra()) && !"".equalsIgnoreCase(user.getcontra())) {
+			brainstormer.setcontra(user.getcontra());
+		}
+		
+		if(Objects.nonNull(user.getemail()) && !"".equalsIgnoreCase(user.getemail())) {
+			brainstormer.setemail(user.getemail());
+		}
+		
+		if(Objects.nonNull(user.getProfesion()) && !"".equalsIgnoreCase(user.getProfesion())) {
+			brainstormer.setProfesion(user.getProfesion());
+		}
+		
+		if(Objects.nonNull(user.getIdea()) && !"".equalsIgnoreCase(user.getIdea())) {
+			brainstormer.setIdea(user.getIdea());
+		}
+		return usuarioRepository.save(brainstormer);
 	}
 	
 	public void financiamiento(long usuario_ID, float monto) {

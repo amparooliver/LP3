@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import sistema.lp3.constants.ApiPaths;
 import sistema.lp3.domain.Administrador;
 import sistema.lp3.domain.Angel_Investor;
+import sistema.lp3.domain.Brainstormer;
+import sistema.lp3.domain.Implementador;
 import sistema.lp3.domain.Sponsor;
 import sistema.lp3.domain.Usuario;
 import sistema.lp3.repository.Usuario_repository;
@@ -78,13 +80,13 @@ public class Usuario_controller {
 		return Usuario_service.update_admin(user, usuario_ID);
 	}
 	
-	//Post para crar sponsor 
+	//Post para crear sponsor 
 	@RequestMapping(value="/Sponsor", method= RequestMethod.POST)
 	public void add_sponsor(@RequestBody Sponsor user) {
 		Usuario_service.save(user);
 	}
 	
-	//Put para actualizar administrador 
+	//Put para actualizar sponsor
 	@PutMapping("/Sponsor/{usuario_ID}")
 	public Usuario update_sponsor(@RequestBody Sponsor user, @PathVariable("usuario_ID") long usuario_ID) {
 		return Usuario_service.update_sponsor(user, usuario_ID);
@@ -95,4 +97,32 @@ public class Usuario_controller {
 	public void add_angel(@RequestBody Angel_Investor user) {
 		Usuario_service.save(user);
 	}
+	
+	//Post para crear Implementador 
+	@RequestMapping(value="/Implementador", method= RequestMethod.POST)
+	public void add_Implementador(@RequestBody Implementador user) {
+		Usuario_service.save(user);
+	}
+	
+	//Put para actualizar implementador
+	@PutMapping("/Implementador/{usuario_ID}")
+	public Usuario update_implementador(@RequestBody Implementador user, @PathVariable("usuario_ID") long usuario_ID) {
+		return Usuario_service.update_implementador(user, usuario_ID);
+	}
+	
+	//Post para crear Brainstormer
+	@RequestMapping(value="/Brainstormer", method= RequestMethod.POST)
+	public void add_Brainstormer(@RequestBody Brainstormer user) {
+		Usuario_service.save(user);
+	}
+	
+	//Put para actualizar brainstormer
+	@PutMapping("/Brainstormer/{usuario_ID}")
+	public Usuario update_brainstormer(@RequestBody Brainstormer user, @PathVariable("usuario_ID") long usuario_ID) {
+		return Usuario_service.update_brainstormer(user, usuario_ID);
+	}
+	
+	
+	
+	
 }
