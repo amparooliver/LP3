@@ -57,15 +57,23 @@ public class Usuario_controller {
 		return Usuario_service.update_user(user, usuario_ID);
 	}
 	
+	//Get para listar usuarios por rol
 	@GetMapping("/{rol}")
 	public List<Usuario> findByRol(@PathVariable("rol") String rol){
 	    List<Usuario> users=Usuario_service.findByRol(rol);
 	    return users;
 	}
 	
+	//Post para crear administrador
 	@RequestMapping(value="/Administrador", method= RequestMethod.POST)
 	public void add_admin(@RequestBody Administrador user) {
 		Usuario_service.save(user);
+	}
+	
+	//Put para actualizar administrador 
+	@PutMapping("/Administrador/{usuario_ID}")
+	public Usuario update_admin(@RequestBody Administrador user, @PathVariable("usuario_ID") long usuario_ID) {
+		return Usuario_service.update_admin(user, usuario_ID);
 	}
 	
 	

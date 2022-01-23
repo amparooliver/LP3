@@ -2,6 +2,7 @@ package sistema.lp3.service;
 
 import java.util.List;
 
+import sistema.lp3.domain.Administrador;
 import sistema.lp3.domain.Usuario;
 
 public interface Usuario_service {
@@ -17,5 +18,9 @@ public interface Usuario_service {
 	
 	//Metodo para listar usuarios por roles
 	List<Usuario> findByRol(String rol);
+	
+	//Metodo para actualizar administrador (los bienes)
+	Administrador update_admin(Administrador user, long usuario_ID);
+	
 }
 

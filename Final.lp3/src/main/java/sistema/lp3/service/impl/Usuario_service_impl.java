@@ -8,6 +8,7 @@ import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import sistema.lp3.domain.Administrador;
 import sistema.lp3.domain.Usuario;
 import sistema.lp3.repository.Usuario_repository;
 import sistema.lp3.service.Usuario_service;
@@ -68,6 +69,28 @@ public class Usuario_service_impl implements Usuario_service {
 			users.add(iteratorUsuarios.next());
 		}
 		return users;	
+	}
+
+	public Administrador update_admin(Administrador user, long usuario_ID) {
+		Administrador admin= (Administrador) usuarioRepository.findById(usuario_ID).get();
+		
+		if(Objects.nonNull(user.getnombre()) && !"".equalsIgnoreCase(user.getnombre())) {
+			admin.setnombre(user.getnombre());
+		}
+		
+		if(Objects.nonNull(user.getcontra()) && !"".equalsIgnoreCase(user.getcontra())) {
+			admin.setcontra(user.getcontra());
+		}
+		
+		if(Objects.nonNull(user.getemail()) && !"".equalsIgnoreCase(user.getemail())) {
+			admin.setemail(user.getemail());
+		}
+		
+		if(Objects.nonNull(user.getBienes()) && !"".equalsIgnoreCase(user.getBienes())) {
+			admin.setBienes(user.getBienes());
+		}
+		
+		return usuarioRepository.save(admin);
 	}
 	
 }
