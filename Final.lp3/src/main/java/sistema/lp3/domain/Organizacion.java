@@ -32,8 +32,8 @@ public class Organizacion implements Serializable{
 	String nombreOrganizacion;
 	String tipoDeOrganizacion;
 	
-	/*@ElementCollection
-	private List<Usuario> listaMiembros = new ArrayList<Usuario>();*/
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Usuario> listaMiembros = new ArrayList<Usuario>();
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	protected List<Proyecto> listaProyectos;
@@ -61,14 +61,14 @@ public class Organizacion implements Serializable{
 	public void setTipoDeOrganizacion(String tipoDeOrganizacion) {
 		this.tipoDeOrganizacion = tipoDeOrganizacion;
 	}
-	/*
+	
 	public List<Usuario> getListaMiembros() {
 		return listaMiembros;
 	}
 
 	public void setListaMiembros(List<Usuario> listaMiembros) {
 		this.listaMiembros = listaMiembros;
-	}*/
+	}
 
 	public List<Proyecto> getListaProyectos() {
 		return listaProyectos;
