@@ -1,5 +1,6 @@
 package sistema.lp3.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,8 +18,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Table(name="sis_usuarios")
 @Entity
-public class Usuario{
-	
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Usuario implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long usuario_ID;

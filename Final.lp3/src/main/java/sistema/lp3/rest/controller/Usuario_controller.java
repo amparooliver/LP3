@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import sistema.lp3.constants.ApiPaths;
+import sistema.lp3.domain.Administrador;
 import sistema.lp3.domain.Usuario;
 import sistema.lp3.repository.Usuario_repository;
 import sistema.lp3.service.impl.Usuario_service_impl;
@@ -61,6 +62,12 @@ public class Usuario_controller {
 	    List<Usuario> users=Usuario_service.findByRol(rol);
 	    return users;
 	}
+	
+	@RequestMapping(value="/Administrador", method= RequestMethod.POST)
+	public void add_admin(@RequestBody Administrador user) {
+		Usuario_service.save(user);
+	}
+	
 	
 	
 }
