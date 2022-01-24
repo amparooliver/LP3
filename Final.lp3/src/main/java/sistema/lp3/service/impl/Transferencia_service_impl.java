@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sistema.lp3.Utils.Verificaciones_Utils;
-import sistema.lp3.domain.Metodo_Pago;
 import sistema.lp3.domain.Transferencia;
 import sistema.lp3.exceptions.SistemaException;
 import sistema.lp3.repository.Transferencia_repository;
@@ -39,8 +38,13 @@ public class Transferencia_service_impl implements Transferencia_service{
 	}
 
 	@Override
-	public void delete_transfer(long transferencia_ID) {
-		transferencia_repository.deleteById(transferencia_ID);
+	public void delete_transfer(long transferencia_ID) throws SistemaException {
+		if (! transferencia_repository.existsById(transferencia_ID)) {
+			throw new SistemaException("Error: Transferencia no encontrada");
+		}else {
+			transferencia_repository.deleteById(transferencia_ID);
+		}
+		
 	}
 
 	@Override

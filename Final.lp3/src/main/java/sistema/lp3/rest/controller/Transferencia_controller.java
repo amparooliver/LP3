@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import sistema.lp3.constants.ApiPaths;
-import sistema.lp3.domain.Organizacion;
 import sistema.lp3.domain.Transferencia;
 import sistema.lp3.exceptions.SistemaException;
 import sistema.lp3.service.impl.Transferencia_service_impl;

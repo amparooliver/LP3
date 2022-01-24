@@ -46,7 +46,6 @@ public class Organizacion_service_impl implements Organizacion_service{
 		else {
 			organizacion_repository.deleteById(organizacion_ID);
 		}
-		
 	}
 
 	@Override
