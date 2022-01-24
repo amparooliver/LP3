@@ -44,7 +44,11 @@ public class Usuario implements Serializable, Notificable{
 	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="yyyy-MM-dd")
 	protected Date fechaVencimiento;
-	 
+	
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="yyyy-MM-dd")
+	protected Date notificacionVencimiento;
+	
 	public Long getusuario_ID() {
 		return usuario_ID;
 	}
@@ -99,6 +103,14 @@ public class Usuario implements Serializable, Notificable{
 
 	public void setFechaVencimiento(Date fechaVencimiento) {
 		this.fechaVencimiento = fechaVencimiento;
+	}
+
+	public Date getNotificacionVencimiento() {
+		return notificacionVencimiento;
+	}
+
+	public void setNotificacionVencimiento(Date notificacionVencimiento) {
+		this.notificacionVencimiento = notificacionVencimiento;
 	}
 
 	public Usuario() {

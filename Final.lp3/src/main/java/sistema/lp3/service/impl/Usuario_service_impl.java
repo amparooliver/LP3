@@ -44,6 +44,7 @@ public class Usuario_service_impl implements Usuario_service {
 		}else {
 			user.setinvitacion(new Date());
 			user.setFechaVencimiento(Date_Utils.sumarDiasDate(user.getinvitacion(), Constantes.FECHA_VENC));
+			user.setNotificacionVencimiento(Date_Utils.sumarDiasDate(user.getinvitacion(), Constantes.SEM_VENC));
 			usuarioRepository.save(user);
 		}
 	}
@@ -203,6 +204,8 @@ public class Usuario_service_impl implements Usuario_service {
 		try {
 			//obtener usuarios cuyas membresias estan por expirar
 			List<Usuario> usuarios = usuarioRepository.findAboutToExpiredUserCredential();
+			//obtener usuarios cuyas membresias expiraron
+			List<Usuario> usuarios2 = usuarioRepository.findExpiredUserMembership();
 			
 			if(usuarios != null && !usuarios.isEmpty()) {
 				for(Usuario usuarioANotificar : usuarios) {
@@ -210,6 +213,15 @@ public class Usuario_service_impl implements Usuario_service {
 						Email_Utils.notificarVencimientoEmail(usuarioANotificar);
 					} catch (Exception e) {
 						System.out.println("Error: No se pudo notificar futura expiracion de membresia al usuario ID: " + usuarioANotificar.getusuario_ID());
+					}
+				}
+			}
+			if(usuarios2 != null && !usuarios2.isEmpty()) {
+				for(Usuario usuarioANotificar2 : usuarios2) {
+					try {
+						Email_Utils.notificarVencimientoFinalEmail(usuarioANotificar2);
+					} catch (Exception e) {
+						System.out.println("Error: No se pudo notificar expiracion de membresia al usuario ID: " + usuarioANotificar2.getusuario_ID());
 					}
 				}
 			}
