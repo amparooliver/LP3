@@ -18,9 +18,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import sistema.lp3.Utils.Date_Utils;
 import sistema.lp3.Utils.interfaces.Notificable;
-import sistema.lp3.constants.Constantes;
 
 @Table(name="sis_usuarios")
 @Entity
@@ -39,11 +37,11 @@ public class Usuario implements Serializable, Notificable{
 	protected String nombre;
 	protected String email;
 	protected String rol;
-	
-	@CreationTimestamp
+
 	@JsonFormat(pattern="yyyy-MM-dd")
 	@Column(name="Fecha_invitacion")
 	protected Date invitacion;
+	
 	
 	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="yyyy-MM-dd")

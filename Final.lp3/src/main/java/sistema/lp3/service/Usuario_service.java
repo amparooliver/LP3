@@ -18,7 +18,7 @@ public interface Usuario_service {
 	List<Usuario> findAll();
 	
 	//Metodo para eliminar un usuario por su id 
-	void delete_user(long usuario_ID);
+	void delete_user(long usuario_ID) throws SistemaException;
 	
 	//Metodo para actualizar datos de usuarios segun su id 
 	Usuario update_user(Usuario user, long usuario_ID);

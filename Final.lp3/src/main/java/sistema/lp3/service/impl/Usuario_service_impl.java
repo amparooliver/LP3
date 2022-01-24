@@ -1,19 +1,17 @@
 package sistema.lp3.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.catalina.authenticator.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import sistema.lp3.Utils.Email_Utils;
-import sistema.lp3.constants.Constantes;
 import sistema.lp3.Utils.Date_Utils;
+import sistema.lp3.Utils.Email_Utils;
 import sistema.lp3.domain.Administrador;
-import sistema.lp3.domain.Angel_Investor;
 import sistema.lp3.domain.Brainstormer;
 import sistema.lp3.domain.Implementador;
 import sistema.lp3.domain.Sponsor;
@@ -21,6 +19,8 @@ import sistema.lp3.domain.Usuario;
 import sistema.lp3.exceptions.SistemaException;
 import sistema.lp3.repository.Usuario_repository;
 import sistema.lp3.service.Usuario_service;
+import sistema.lp3.Utils.Verificaciones_Utils;
+import sistema.lp3.constants.Constantes;
 
 
 @Service
@@ -38,18 +38,23 @@ public class Usuario_service_impl implements Usuario_service {
 		return users;
 	}
 
-	public void save(Usuario user) {
-		usuarioRepository.save(user);
+	public void save(Usuario user) throws SistemaException {
+		if(! Verificaciones_Utils.verificarUsuario(user)) {
+			throw new SistemaException("Uno de los atributos esta vacio");
+		}else {
+			user.setinvitacion(new Date());
+			user.setFechaVencimiento(Date_Utils.sumarDiasDate(user.getinvitacion(), Constantes.FECHA_VENC));
+			usuarioRepository.save(user);
+		}
 	}
-	
-	/*public Usuario crearUsuario(Usuario usuario) {
-		usuario.setFechaVencimiento(Date_Utils.sumarDiasDate(usuario.getinvitacion(), Constantes.FECHA_VENC));
-		return usuarioRepository.save(usuario);
-	}*/
 
 	@Override
-	public void delete_user(long usuario_ID) {
-		usuarioRepository.deleteById(usuario_ID);
+	public void delete_user(long usuario_ID) throws SistemaException{
+		if(! usuarioRepository.existsById(usuario_ID)){
+			throw new SistemaException("El usuario no existe");
+		}else {
+			usuarioRepository.deleteById(usuario_ID);
+		}
 	}
 
 	@Override
