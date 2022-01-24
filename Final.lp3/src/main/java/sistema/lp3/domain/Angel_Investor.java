@@ -38,4 +38,9 @@ public class Angel_Investor extends Usuario implements Serializable{
 		this.listaOrganizaciones = listaOrganizaciones;
 	}
 	
+	public Angel_Investor() {
+		this.rol = "Angel";
+	}
+
+	
 }

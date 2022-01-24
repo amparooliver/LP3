@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sistema.lp3.domain.Administrador;
+import sistema.lp3.domain.Angel_Investor;
 import sistema.lp3.domain.Brainstormer;
 import sistema.lp3.domain.Implementador;
 import sistema.lp3.domain.Sponsor;
@@ -172,5 +173,11 @@ public class Usuario_service_impl implements Usuario_service {
 		//Realizar la transferencia de acuerdo al monto al usuario asignado
 		//Retorna nulo 
 	}
+
+	public void RecibirAsignacion(long usuario_ID, String asignacion) {
+		//Recibe el id de usuario y la tarea a realizar 
+		//retorna nulo 
+	}
+	
 	
 }

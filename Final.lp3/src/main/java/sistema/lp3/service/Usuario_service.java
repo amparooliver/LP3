@@ -37,6 +37,8 @@ public interface Usuario_service {
 	//Metodo para actualizar brainstormer
 	Brainstormer update_brainstormer(Brainstormer user, long usuario_ID);
 	
+	//Metodo para que el implementador pueda recibir las corresppndientes tareas 
+	void RecibirAsignacion(long usuario_ID, String asignacion);
 	
 }
 

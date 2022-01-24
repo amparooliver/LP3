@@ -47,4 +47,9 @@ public class Organizacion_service_impl implements Organizacion_service{
 		return organizaciones;
 	}
 	
+	public void invertir(long organizacion_ID, int miembros, long monto) {
+		//Parametros: el id de organizacion, cantidad de miembros de la org y el monto a invertir 
+		//Retorna nulo 
+	}
+	
 }
