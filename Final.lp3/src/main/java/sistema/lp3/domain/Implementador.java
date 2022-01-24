@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+/*Clase hija de Usuario para rol de Implementador
+ * Atributos: Tarea a realizar
+ * */
 @Entity
 @PrimaryKeyJoinColumn(referencedColumnName ="usuario_ID")
 public class Implementador extends Usuario implements Serializable{

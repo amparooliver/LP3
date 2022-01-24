@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+/*Clase hija de Usuario para rol de Angel Investor
+ * Atributos: Bienes, Lista de Organizaciones a Invertir
+ * */
 @Entity
 @PrimaryKeyJoinColumn(referencedColumnName ="usuario_ID")
 public class Angel_Investor extends Usuario implements Serializable{
@@ -21,6 +24,8 @@ public class Angel_Investor extends Usuario implements Serializable{
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Organizacion> listaOrganizaciones;
+	
+	//Getters y Setters
 
 	public String getBienes() {
 		return bienes;
@@ -38,6 +43,7 @@ public class Angel_Investor extends Usuario implements Serializable{
 		this.listaOrganizaciones = listaOrganizaciones;
 	}
 	
+	//Metodo para asignar rol a usuario
 	public Angel_Investor() {
 		this.rol = "Angel";
 	}

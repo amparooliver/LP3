@@ -5,6 +5,10 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+/*Clase hija de Usuario para rol de Brainstormer
+ * Atributos: Profesion e idea a desarrollar
+ * */
+
 @Entity
 @PrimaryKeyJoinColumn(referencedColumnName ="usuario_ID")
 public class Brainstormer extends Usuario implements Serializable{
@@ -17,9 +21,12 @@ public class Brainstormer extends Usuario implements Serializable{
 	private String profesion;
 	private String idea;
 	
+	//Metodo para asignar rol
 	public Brainstormer() {
 		this.rol = "Brainstormer";
 	}
+	
+	//Getters y Setters
 
 	public String getProfesion() {
 		return profesion;
