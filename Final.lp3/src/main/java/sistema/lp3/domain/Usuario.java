@@ -102,7 +102,7 @@ public class Usuario implements Serializable, Notificable{
 	}
 
 	public void setFechaVencimiento(Date fechaVencimiento) {
-		this.fechaVencimiento = (Date_Utils.sumarDiasDate(getinvitacion(), Constantes.FECHA_VENC));
+		this.fechaVencimiento = fechaVencimiento;
 	}
 
 	public Usuario() {
