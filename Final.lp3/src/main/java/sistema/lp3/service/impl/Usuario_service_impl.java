@@ -5,17 +5,23 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.catalina.authenticator.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import sistema.lp3.Utils.Email_Utils;
+import sistema.lp3.constants.Constantes;
+import sistema.lp3.Utils.Date_Utils;
 import sistema.lp3.domain.Administrador;
 import sistema.lp3.domain.Angel_Investor;
 import sistema.lp3.domain.Brainstormer;
 import sistema.lp3.domain.Implementador;
 import sistema.lp3.domain.Sponsor;
 import sistema.lp3.domain.Usuario;
+import sistema.lp3.exceptions.SistemaException;
 import sistema.lp3.repository.Usuario_repository;
 import sistema.lp3.service.Usuario_service;
+
 
 @Service
 public class Usuario_service_impl implements Usuario_service {
@@ -35,6 +41,11 @@ public class Usuario_service_impl implements Usuario_service {
 	public void save(Usuario user) {
 		usuarioRepository.save(user);
 	}
+	
+	/*public Usuario crearUsuario(Usuario usuario) {
+		usuario.setFechaVencimiento(Date_Utils.sumarDiasDate(usuario.getinvitacion(), Constantes.FECHA_VENC));
+		return usuarioRepository.save(usuario);
+	}*/
 
 	@Override
 	public void delete_user(long usuario_ID) {
@@ -179,5 +190,27 @@ public class Usuario_service_impl implements Usuario_service {
 		//retorna nulo 
 	}
 	
+/*Metodo que envia un mensaje por correo o push notification al usuario cuya membresia esta por expirar.*/
+	
+	
+	@Override
+	public void notificarVencimiento() throws SistemaException {
+		try {
+			//obtener usuarios cuyas membresias estan por expirar
+			List<Usuario> usuarios = usuarioRepository.findAboutToExpiredUserCredential();
+			
+			if(usuarios != null && !usuarios.isEmpty()) {
+				for(Usuario usuarioANotificar : usuarios) {
+					try {
+						Email_Utils.notificarVencimientoEmail(usuarioANotificar);
+					} catch (Exception e) {
+						System.out.println("Error: No se pudo notificar futura expiracion de membresia al usuario ID: " + usuarioANotificar.getusuario_ID());
+					}
+				}
+			}
+		} catch (Exception e) {
+			throw new SistemaException("Error: No se pudo notificar futura expiracion de membresia al usuario.");
+		}
+	}
 	
 }

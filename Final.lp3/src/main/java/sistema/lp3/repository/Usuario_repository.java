@@ -14,4 +14,7 @@ public interface Usuario_repository extends PagingAndSortingRepository<Usuario, 
 	@Query("SELECT u from Usuario u WHERE u.rol LIKE %?1")
 	List<Usuario> findByRol(String rol);
 	
+	@Query("SELECT u FROM Usuario u WHERE u.fechaVencimiento = CURRENT_DATE")
+	public List<Usuario> findAboutToExpiredUserCredential();
+	
 }

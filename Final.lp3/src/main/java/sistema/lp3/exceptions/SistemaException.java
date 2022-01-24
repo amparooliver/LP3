@@ -1,19 +1,24 @@
 package sistema.lp3.exceptions;
 
-public class SistemaException extends Exception {
+import java.io.Serializable;
+
+public class SistemaException extends Exception implements Serializable{
 
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
-
+	
+	private String message;
+	
 	public SistemaException() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public SistemaException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
+		this.message = message;
 	}
 
 	public SistemaException(Throwable cause) {
@@ -30,5 +35,20 @@ public class SistemaException extends Exception {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	@Override
+	public String toString() {
+		return "SistemaException [message=" + message + "]";
+	}
+	
+	
 
 }

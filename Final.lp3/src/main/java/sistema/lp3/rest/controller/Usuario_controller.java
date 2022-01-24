@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,6 +50,7 @@ public class Usuario_controller {
 			}	
 	}
 	
+	
 	//Post para guardar usuarios 
 	@PostMapping
 	public ResponseEntity<Usuario> add(@RequestBody Usuario user, UriComponentsBuilder builder) throws SistemaException{
@@ -62,6 +64,9 @@ public class Usuario_controller {
 			throw new SistemaException("Error al crear usuario");
 		}
 	}
+	
+	//Post para guardar usuarios
+	
 	
 	//Delete para eliminar usaurios por su id 
 	@DeleteMapping("/{usuario_ID}")
@@ -219,5 +224,16 @@ public class Usuario_controller {
 		}
 	}
 
-	
+		
+	@RequestMapping(value = "/notificarVencimiento", method = RequestMethod.GET)
+    public void notificarVencimiento() throws SistemaException {
+			try {
+				Usuario_service.notificarVencimiento();
+			} catch (SistemaException sistemaException) {
+				throw sistemaException;
+			} catch (Exception error) {
+				System.out.println(error);
+				throw new SistemaException("Error al intentar notificar usuarios sobre vencimiento.");
+			}
+	}
 }

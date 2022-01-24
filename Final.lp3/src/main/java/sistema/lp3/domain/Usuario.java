@@ -10,16 +10,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import sistema.lp3.Utils.Date_Utils;
+import sistema.lp3.Utils.interfaces.Notificable;
+import sistema.lp3.constants.Constantes;
 
 @Table(name="sis_usuarios")
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario implements Serializable{
+public class Usuario implements Serializable, Notificable{
 	/**
 	 * 
 	 */
@@ -35,9 +41,14 @@ public class Usuario implements Serializable{
 	protected String rol;
 	
 	@CreationTimestamp
+	@JsonFormat(pattern="yyyy-MM-dd")
 	@Column(name="Fecha_invitacion")
 	protected Date invitacion;
-
+	
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="yyyy-MM-dd")
+	protected Date fechaVencimiento;
+	 
 	public Long getusuario_ID() {
 		return usuario_ID;
 	}
@@ -86,9 +97,16 @@ public class Usuario implements Serializable{
 		this.invitacion = invitacion;
 	}
 
+	public Date getFechaVencimiento() {
+		return fechaVencimiento;
+	}
+
+	public void setFechaVencimiento(Date fechaVencimiento) {
+		this.fechaVencimiento = (Date_Utils.sumarDiasDate(getinvitacion(), Constantes.FECHA_VENC));
+	}
+
 	public Usuario() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

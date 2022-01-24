@@ -7,8 +7,12 @@ import sistema.lp3.domain.Brainstormer;
 import sistema.lp3.domain.Implementador;
 import sistema.lp3.domain.Sponsor;
 import sistema.lp3.domain.Usuario;
+import sistema.lp3.exceptions.SistemaException;
 
 public interface Usuario_service {
+	
+	//Metodo para crear un usuario
+	//public Usuario crearUsuario(Usuario usuario);
 	
 	//Metodo para listar todos los usuarios
 	List<Usuario> findAll();
@@ -37,8 +41,11 @@ public interface Usuario_service {
 	//Metodo para actualizar brainstormer
 	Brainstormer update_brainstormer(Brainstormer user, long usuario_ID);
 	
-	//Metodo para que el implementador pueda recibir las corresppndientes tareas 
+	//Metodo para que el implementador pueda recibir las correspondientes tareas 
 	void RecibirAsignacion(long usuario_ID, String asignacion);
+	
+	//Metodo que envia un mensaje por mail para notificar al usuario que su membresia esta por expirar
+	public void notificarVencimiento() throws SistemaException;
 	
 }
 
