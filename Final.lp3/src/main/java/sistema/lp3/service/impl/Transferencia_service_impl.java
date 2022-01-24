@@ -7,7 +7,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import sistema.lp3.Utils.Verificaciones_Utils;
+import sistema.lp3.domain.Metodo_Pago;
 import sistema.lp3.domain.Transferencia;
+import sistema.lp3.exceptions.SistemaException;
 import sistema.lp3.repository.Transferencia_repository;
 import sistema.lp3.service.Transferencia_service;
 
@@ -27,9 +30,12 @@ public class Transferencia_service_impl implements Transferencia_service{
 		return transferencias;
 	}
 	
-	public void save(Transferencia transferencias) {
-		transferencia_repository.save(transferencias);
-		
+	public void save(Transferencia transferencias) throws SistemaException {
+		if (! Verificaciones_Utils.verificarPago(transferencias.getMetodoPago())) {
+			throw new SistemaException("Error al crear transferencias");
+		}else {
+			transferencia_repository.save(transferencias);
+		}	
 	}
 
 	@Override
@@ -46,7 +52,5 @@ public class Transferencia_service_impl implements Transferencia_service{
 		return transferencia_repository.save(transferencia);
 		
 	}
-	
-	
 	
 }

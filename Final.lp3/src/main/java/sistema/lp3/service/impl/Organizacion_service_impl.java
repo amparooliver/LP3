@@ -7,7 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import sistema.lp3.Utils.Verificaciones_Utils;
 import sistema.lp3.domain.Organizacion;
+import sistema.lp3.exceptions.SistemaException;
 import sistema.lp3.repository.Organizacion_repository;
 import sistema.lp3.service.Organizacion_service;
 
@@ -27,14 +29,24 @@ public class Organizacion_service_impl implements Organizacion_service{
 		return organizaciones;
 	}
 
-	public void save(Organizacion organizaciones) {
-		organizacion_repository.save(organizaciones);
-		
+	public void save(Organizacion organizaciones) throws SistemaException{
+		if(! Verificaciones_Utils.verificarOrganizacion(organizaciones)) {
+			throw new SistemaException("Error: Rellene todos los campos obligatorios");
+		}
+		else {
+			organizacion_repository.save(organizaciones);
+		}
 	}
 	
 	@Override
-	public void delete_org(long organizacion_ID) {
-		organizacion_repository.deleteById(organizacion_ID);
+	public void delete_org(long organizacion_ID) throws SistemaException {
+		if(! organizacion_repository.existsById(organizacion_ID)) {
+			throw new SistemaException("La organizacion a eliminar no existe");
+		}
+		else {
+			organizacion_repository.deleteById(organizacion_ID);
+		}
+		
 	}
 
 	@Override

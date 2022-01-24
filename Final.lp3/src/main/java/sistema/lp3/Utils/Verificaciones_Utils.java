@@ -1,9 +1,13 @@
 package sistema.lp3.Utils;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import sistema.lp3.domain.Metodo_Pago;
+import sistema.lp3.domain.Organizacion;
 import sistema.lp3.domain.Usuario;
 import sistema.lp3.exceptions.SistemaException;
 
@@ -68,6 +72,52 @@ public class Verificaciones_Utils {
             }
         }
         return var;
+	}
+	
+	public static Boolean verificarOrganizacion(Organizacion org) throws SistemaException{
+		boolean var= true;
+		if(isEmptyString(org.getNombreOrganizacion())) {
+			var= false;
+			System.out.println("No se ingreso nombre de la organizacion");
+			throw new SistemaException("Para crear la organizacion se debe ingresar un nombre");
+		}
+		if(isEmptyString(org.getTipoDeOrganizacion())) {
+			var=false;
+			System.out.println("No se ingreso el tipo de organizacion");
+			throw new SistemaException("Para crear la organizacion se debe ingresar el tipo");
+		}
+		else{
+			var= true;
+		}
+		return var;
+	}
+	
+	public static Boolean verificarPago(List<Metodo_Pago> pagos) throws SistemaException{
+		boolean var= true;
+		Iterator<Metodo_Pago> iteratorPagos= pagos.iterator();
+		while (iteratorPagos.hasNext()) {
+			Metodo_Pago p = iteratorPagos.next();
+			if(isEmptyString(p.getDestinatario())) {
+				var= false;
+				System.out.println("No se ingreso el destinatario");
+				throw new SistemaException("Para realizar una transferencia se debe ingresar un destinatario");
+			}
+			if(isEmptyString(p.getTipo_Pago())) {
+				var=false;
+				System.out.println("No se ingreso tipo de pago");
+				throw new SistemaException("Para realizar una transferencia se debe ingresar una tipo de pago");
+			}
+			if(p.getMonto()==null) {
+				var=false;
+				System.out.println("No se ingreso ningun monto");
+				throw new SistemaException("Para realizar una transferencia se debe ingresar un monto");
+				
+			}
+			else{
+				var= true;
+			}
+		}
+		return var;
 	}
 
 }
