@@ -1,14 +1,18 @@
 package sistema.lp3.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import sistema.lp3.Utils.Date_Utils;
 import sistema.lp3.Utils.Verificaciones_Utils;
+import sistema.lp3.constants.Constantes;
 import sistema.lp3.domain.Organizacion;
+import sistema.lp3.domain.Usuario;
 import sistema.lp3.exceptions.SistemaException;
 import sistema.lp3.repository.Organizacion_repository;
 import sistema.lp3.service.Organizacion_service;
@@ -34,6 +38,14 @@ public class Organizacion_service_impl implements Organizacion_service{
 			throw new SistemaException("Error: Rellene todos los campos obligatorios");
 		}
 		else {
+			List<Usuario> miembros = organizaciones.getListaMiembros();
+			Iterator<Usuario> iteratorMiembros = miembros.iterator();
+			while (iteratorMiembros.hasNext()) {
+				Usuario u = iteratorMiembros.next();
+				u.setinvitacion(new Date());
+				u.setFechaVencimiento(Date_Utils.sumarDiasDate(u.getinvitacion(), Constantes.FECHA_VENC));
+				u.setNotificacionVencimiento(Date_Utils.sumarDiasDate(u.getinvitacion(), Constantes.SEM_VENC));
+			}
 			organizacion_repository.save(organizaciones);
 		}
 	}
